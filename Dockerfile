@@ -4,7 +4,12 @@ MAINTAINER Larry Smith Jr. <mrlesmithjr@gmail.com>
 
 # Install PowerShell Pre-Reqs
 RUN apt-get update && \
-    apt-get install -y apt-transport-https curl
+    apt-get install -y \
+        apt-transport-https \
+        curl \
+        youtube-dl \
+        ffmpeg \
+        aria2
 
 # Add Microsoft apt key and repo
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
