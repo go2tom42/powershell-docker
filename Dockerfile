@@ -37,7 +37,7 @@ RUN locale-gen $LANG && update-locale
 RUN apt-get update \
       && curl -L -O https://github.com/PowerShell/PowerShell/releases/download/v6.1.0/powershell_6.1.0-1.ubuntu.16.04_amd64.deb    \
       && dpkg -i powershell_6.1.0-1.ubuntu.16.04_amd64.deb \
-      && apt-get install -f
+      && apt-get install -f \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
 
