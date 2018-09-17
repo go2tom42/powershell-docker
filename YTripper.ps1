@@ -294,7 +294,7 @@ foreach($key in $FileContent.keys)
         $RSS = try { Invoke-RestMethod $rssurl } catch { $_.Exception.Response }
         if ($RSS.Count -eq 0) {$RSS = try { Invoke-RestMethod $rssurl } catch { $_.Exception.Response } }
         $FileContent[$key]["lastid"] = $RSS.videoId[0]
-        $arguments = '-i --add-metadata  --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --download-archive /PSripper/config/archive.txt --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x '+$aria2cThreads+' -s '+$aria2cThreads+' -k 1M"  -f "bestvideo[height<=?'+$res+'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+''+$os+'%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
+        $arguments = '-i --add-metadata  --restrict-filenames --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --download-archive /PSripper/config/archive.txt --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x '+$aria2cThreads+' -s '+$aria2cThreads+' -k 1M"  -f "bestvideo[height<=?'+$res+'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+''+$os+'%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
 #       $arguments = '-i --add-metadata  --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x 32 -s 32 -k 1M"  -f "bestvideo[height<=?'+ $res +'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+'\%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
          Start-Process -FilePath "youtube-dl" -ArgumentList $arguments -WorkingDirectory $WorkingDirectory -Wait -NoNewWindow
          Out-IniFile -InputObject $FileContent -FilePath $inifile -Force
@@ -332,7 +332,7 @@ DO
         }else{
             "$key Updated"
             $FileContent[$key]["lastid"] = $RSS.videoId[0]
-            $arguments = '-i --add-metadata  --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --download-archive /PSripper/config/archive.txt --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x '+$aria2cThreads+' -s '+$aria2cThreads+' -k 1M"  -f "bestvideo[height<=?'+$res+'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+''+$os+'%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
+            $arguments = '-i --add-metadata  --restrict-filenames --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --download-archive /PSripper/config/archive.txt --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x '+$aria2cThreads+' -s '+$aria2cThreads+' -k 1M"  -f "bestvideo[height<=?'+$res+'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+''+$os+'%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
 #           $arguments = '-i --add-metadata  --no-warnings --ignore-config --write-sub --embed-subs --ignore-errors --retries 16 --download-archive archive.txt --external-downloader aria2c --external-downloader-args "--file-allocation=none -c -j 5 -x 32 -s 32 -k 1M"  -f "bestvideo[height<=?'+$res+'][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "'+$path+'\%(upload_date)s - %(title)s[%(id)s].%(ext)s" ' +$DNurl
             Start-Process -FilePath "youtube-dl" -ArgumentList $arguments -WorkingDirectory $WorkingDirectory -wait -NoNewWindow
             Out-IniFile -InputObject $FileContent -FilePath $inifile -Force
