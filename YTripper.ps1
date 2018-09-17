@@ -16,7 +16,7 @@ if ($PSVersionTable["Platform"].Equals("Unix")) {
 }
 
 
-$inifile = "$($ScriptDir)$($os)ripper.ini"
+$inifile = "$($ScriptDir)$($os)config$($os)ripper.ini"
 
 Function Out-IniFile {  
     <#  
