@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  psripper:
+        image: tom42/powershell-docker
+        container_name: psripper
+        volumes:
+            - /home/docker/configs/psripper:/PSripper/config
+            - /media/WHERE TO SAVE FILES:/media
+        restart: always
+        
+networks:
+  default:
+    external:
+      name: nginx-proxy        
