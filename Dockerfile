@@ -10,6 +10,7 @@ RUN apt-get update && \
         youtube-dl \
         ffmpeg \
         aria2
+RUN mkdir -p /PSripper/config
 
 # Add Microsoft apt key and repo
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
@@ -22,5 +23,7 @@ RUN apt-get update && apt-get install -y powershell
 RUN apt-get -y clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ADD YTripper.ps1 /PSripper/YTripper.ps1
+CMD [ "pwsh /PSripper/YTripper.ps1" ]
 
-CMD [ "pwsh" ]
+VOLUME /PSripper/config /media 
