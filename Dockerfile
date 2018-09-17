@@ -2,16 +2,28 @@ FROM ubuntu:16.04
 
 MAINTAINER Larry Smith Jr. <mrlesmithjr@gmail.com>
 
+
 # Install PowerShell Pre-Reqs
 RUN apt-get update && \
     apt-get install -y \
-        apt-transport-https \
-        curl \
-        python3 \
-        python3-pip \
-        ffmpeg \
-        aria2
+    apt-transport-https \
+    curl \
+    python3 \
+    python3-pip \
+    aria2
+RUN echo 'deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu xenial main' > /etc/apt/sources.list.d/handbrake.list && \
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8771ADB0816950D8 && \
+	apt-get update && \
+	apt-get -y --no-install-recommends install software-properties-common 
+RUN	add-apt-repository ppa:jonathonf/ffmpeg-3
+RUN	apt-get update && \
+	apt-get -y --no-install-recommends install ffmpeg && \
+	apt autoremove -y && \
+	rm -rf /var/lib/apt/lists/*
+RUN	ln -s /usr/bin/python3 /usr/bin/python
+
 RUN pip3 install youtube-dl
+RUN	pip3 install lxml
 #RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 #RUN chmod a+rx /usr/local/bin/youtube-dl
 
