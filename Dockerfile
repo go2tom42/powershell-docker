@@ -8,10 +8,12 @@ RUN apt-get update && \
         apt-transport-https \
         curl \
         python3 \
+        python3-pip \
         ffmpeg \
         aria2
-RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-RUN chmod a+rx /usr/local/bin/youtube-dl
+RUN pip3 install youtube-dl
+#RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+#RUN chmod a+rx /usr/local/bin/youtube-dl
 
 
 RUN mkdir -p /PSripper/config
