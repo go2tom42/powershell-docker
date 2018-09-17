@@ -337,7 +337,7 @@ DO
             Start-Process -FilePath "youtube-dl" -ArgumentList $arguments -WorkingDirectory $WorkingDirectory -wait -NoNewWindow
             Out-IniFile -InputObject $FileContent -FilePath $inifile -Force
             $logline = "$(Get-Date) - $key"
-            Add-content "$($ScriptDir)$($os)log.txt" -value $logline
+            Add-content "$($ScriptDir)$($os)config$($os)log.txt" -value $logline
         }
         Start-Sleep -s 1
     }   
