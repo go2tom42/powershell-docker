@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y \
         apt-transport-https \
         curl \
-#        youtube-dl \
+        python3 \
         ffmpeg \
         aria2
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
