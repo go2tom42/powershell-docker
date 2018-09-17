@@ -15,6 +15,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     software-properties-common \
     apt-transport-https \
+    locales \
     curl \
     python3 \
     python3-pip \
