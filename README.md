@@ -38,4 +38,4 @@ Example docker-compose.yml
 Script works on windows, but you would need to
 - Have [youtube-dl](https://github.com/rg3/youtube-dl) installed (in system path)
 - Have [aria2](https://github.com/aria2/aria2) installed (in system path)
-- Change directory settings in the ripper.ini for each section 'c:\where\to\put\files'
+- Change directory settings in the ripper.ini for each section `c:\where\to\put\files`
