@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   psripper:
-        image: tom42/powershell-docker
+        image: tom42/ps_youtube_dl
         container_name: psripper
         volumes:
             - /home/docker/configs/psripper:/PSripper/config
