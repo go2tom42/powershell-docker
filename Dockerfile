@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Larry Smith Jr. <mrlesmithjr@gmail.com>
+MAINTAINER tom42
 
 
 
