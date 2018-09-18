@@ -5,28 +5,11 @@ If anyone can make this image smaller please do so
 This is a powershell script that downloads videos from a list of IDs, It them monitors the ID for new videos and grabs them too
 
 
-
-ripper.ini files looks like this
-
-`[Byte My Bits Plex]`
-`lastid=`
-`720p=0`
-`ID=PLQXNc7LCyfPJ3OCZ6P7JC7_NzgOh6bc9P`
-`directory=/media/Byte My Bits/Plex`
-
-`[CineFix]`
-`lastid=`
-`720p=0`
-`ID=UCVtL1edhT8qqY-j2JIndMzg`
-`directory=/media/CineFix`
-
-`[CinemaSins]`
-`lastid=`
-`720p=0`
-`ID=UCYUQQgogVeQY8cMQamhHJcg`
-`directory=/media/CinemaSins` 
+ripper.ini file looks like this
 
 
+
+![INI](https://i.imgur.com/xOCH6kD.png)
 
 - 720p=1 will download 720p MP4 files
 - 720p=0 will download 1080p MP4 files
@@ -44,17 +27,8 @@ ripper.ini files looks like this
 
 Example docker-compose.yml
 
-`version: '2.1'`
-`services:`
-​    `psripper:`
-​        `image: tom42/ps_youtube_dl`
-​        `container_name: psripper`
-​        `volumes:`
-​            `- /WHERE THE INI FILE GOES:/PSripper/config`
-​            `- /WHERE YOU WANT THE VIDEOS:/media`
-​        `restart: always`
 
-`networks:`
-  `default:`
-​    `external:`
-​      `name: nginx-proxy`
+
+
+
+![YML](https://i.imgur.com/Jz2Lj7a.png)
