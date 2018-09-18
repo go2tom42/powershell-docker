@@ -4,7 +4,7 @@ services:
         image: tom42/ps_youtube_dl
         container_name: psripper
         volumes:
-            - /home/docker/configs/psripper:/PSripper/config
+            - /WHERE YOU PUT ripper.ini:/PSripper/config
             - /media/WHERE TO SAVE FILES:/media
         restart: always
         
