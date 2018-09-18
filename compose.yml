@@ -5,7 +5,7 @@ services:
         container_name: psripper
         volumes:
             - /WHERE YOU PUT ripper.ini:/PSripper/config
-            - /media/WHERE TO SAVE FILES:/media
+            - /WHERE TO SAVE VIDEOS:/media
         restart: always
         
 networks:
