@@ -2,9 +2,6 @@ FROM ubuntu:16.04
 
 MAINTAINER tom42
 
-
-
-
 # Install PowerShell Pre-Reqs
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
