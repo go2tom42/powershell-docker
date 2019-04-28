@@ -21,7 +21,7 @@ ENV LC_ALL en_US.UTF-8
     
 # RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8771ADB0816950D8 && \
  
-RUN add-apt-repository ppa:jonathonf/ffmpeg-3 && \
+RUN add-apt-repository ppa:jonathonf/ffmpeg-4 && \
     apt-get update && \
     apt-get -y --no-install-recommends install ffmpeg && \
     apt autoremove -y && \
