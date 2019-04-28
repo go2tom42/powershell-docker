@@ -19,14 +19,14 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en 
 ENV LC_ALL en_US.UTF-8 
     
-    
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8771ADB0816950D8 && \
-	add-apt-repository ppa:jonathonf/ffmpeg-3 && \
-	apt-get update && \
-	apt-get -y --no-install-recommends install ffmpeg && \
-	apt autoremove -y && \
-	rm -rf /var/lib/apt/lists/*
-RUN	ln -s /usr/bin/python3 /usr/bin/python
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8771ADB0816950D8 && \
+ 
+RUN add-apt-repository ppa:jonathonf/ffmpeg-3 && \
+    apt-get update && \
+    apt-get -y --no-install-recommends install ffmpeg && \
+    apt autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
 RUN pip3 install youtube-dl && \
     pip3 install lxml
