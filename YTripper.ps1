@@ -339,7 +339,7 @@ DO
             $logline = "$(Get-Date) - $key"
             Add-content "$($ScriptDir)$($os)config$($os)log.txt" -value $logline
         }
-        Start-Sleep -s 1
+        Start-Sleep -s 30
     }   
 
 } While ($a -le 2)
